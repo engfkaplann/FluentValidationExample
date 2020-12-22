@@ -9,5 +9,6 @@ namespace FluentValidationExample.Models
     {
         public string email { get; set; }
         public string phoneNumber { get; set; }
+        public string password { get; set; }
     }
 }

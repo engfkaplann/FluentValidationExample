@@ -18,6 +18,8 @@ namespace FluentValidationExample.Validators
                 .Matches(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$").WithMessage("Invalid email format");
 
             RuleFor(x => x.phoneNumber).NotEmpty().Matches(@"\b\d{12}\b");//90xxxxxxxxx
+
+            RuleFor(x => x.password).NotEmpty().Matches(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,50}$").WithMessage("Password required minumum eight characters, at least one letter and one number");
         }
     }
 }
