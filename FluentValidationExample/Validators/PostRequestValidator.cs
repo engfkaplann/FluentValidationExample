@@ -11,7 +11,12 @@ namespace FluentValidationExample.Validators
     {
         public PostRequestValidator()
         {
-            RuleFor(x => x.email).NotEmpty().Matches(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$");//xxxx@xxxx.xxx
+            RuleFor(x => x.email)
+                .NotEmpty().WithMessage("Email address is required")
+                .EmailAddress().WithMessage("Email address is not valid")
+                .Length(1,20).WithMessage("Length must be maximum 20")
+                .Matches(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$").WithMessage("Invalid email format");
+
             RuleFor(x => x.phoneNumber).NotEmpty().Matches(@"\b\d{12}\b");//90xxxxxxxxx
         }
     }

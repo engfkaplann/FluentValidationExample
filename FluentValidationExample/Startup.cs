@@ -28,10 +28,10 @@ namespace FluentValidationExample
             services.AddControllers()
                 .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<Startup>());
 
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.SuppressModelStateInvalidFilter = true;
-            });
+            //services.Configure<ApiBehaviorOptions>(options =>
+            //{
+            //    options.SuppressModelStateInvalidFilter = true;
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
